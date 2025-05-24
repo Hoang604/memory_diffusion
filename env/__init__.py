@@ -1,1 +1,1 @@
-from .env import make_aigc_env
+from .env import Env

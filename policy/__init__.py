@@ -1,4 +1,1 @@
-from .diffusion_opt import DiffusionOPT
-from .random import RandomPolicy
-# from .roundrobin import RoundRobinPolicy
-# from .greedy import GreedyPolicy
+from .diffusion_opt import DiffusionOPT, DiffusionOPTStats, GaussianNoise # Make sure to export all needed classes
