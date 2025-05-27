@@ -245,3 +245,7 @@ EXTERNAL_CONNECTIONS_CHANGE_MAX: int = 2
 
 # CRITIC_HIDDEN_DIM: int = 256
 # """Example: Hidden dimension for the critic's MLPs."""
+
+
+BASE_DOWNLOAD_TIME_SECONDS = 1.0  # Example: Base time in seconds for download component of a task
+INTERNET_SPEED_EPSILON = 1e-6    # Example: Small epsilon to prevent division by zero for internet speed
