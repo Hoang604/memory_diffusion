@@ -106,7 +106,7 @@ Number of features describing each request in the queue.
 Typically: [token_count, internet_speed, img_size, waiting_time].
 """
 
-MAX_STEPS_PER_EPISODE: int = 200
+MAX_STEPS_PER_EPISODE: int = 2000
 """
 Maximum number of simulation steps before an episode is truncated (ended early).
 """
@@ -114,13 +114,15 @@ Maximum number of simulation steps before an episode is truncated (ended early).
 STEP_DURATION_SECONDS: float = 0.5
 """
 Defines the duration of one environment step in real-world seconds.
+This tell how much "simulated real-world time" has elapsed during that one step
+where the agent made its decision and the environment reacted.
 This is used to convert `Time_s` from the benchmark CSV (which is in seconds)
 into the number of environment steps a task will take.
 IMPORTANT: Adjust based on your simulation's desired time scale relative to CSV Time_s.
 """
 
 # --- GPU Configuration ---
-GPU_TOTAL_CAPACITY_GB: float = 16.0
+GPU_TOTAL_CAPACITY_GB: float = 24
 """
 Total GPU memory capacity of the simulated server in Gigabytes.
 Used in conjunction with `PEAK_MEMORY_GB_BY_INDEX` to determine if a batch can be processed.
@@ -132,10 +134,10 @@ SERVER_STATE_DIM: int = 4
 """
 Dimension of the 'server_state' vector in the observation.
 Typically: [M_avail, G_avail_baseline, B_avail, N_connections_avail].
-M_avail: Available general memory (0-1).
-G_avail_baseline: Baseline GPU availability trend (0-1), influenced by external factors.
-B_avail: Available bandwidth (0-1).
-N_connections_avail: Number of available concurrent processing connections.
+- M_avail: Available general memory (0-1).
+- G_avail_baseline: Baseline GPU availability trend (0-1), influenced by external factors.
+- B_avail: Available bandwidth (0-1).
+- N_connections_avail: Number of available concurrent processing connections.
 """
 
 FLATTENED_OBS_DIM: int = SERVER_STATE_DIM + (MAX_REQUESTS_IN_QUEUE_OBS * REQUEST_FEATURE_SIZE)
